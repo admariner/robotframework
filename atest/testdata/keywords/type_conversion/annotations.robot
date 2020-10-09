@@ -141,6 +141,10 @@ Datetime
     DateTime             2014-06-11T10:07:42       datetime(2014, 6, 11, 10, 7, 42)
     DateTime             20180808144342123456      datetime(2018, 8, 8, 14, 43, 42, 123456)
     DateTime             1975:06:04                datetime(1975, 6, 4)
+    DateTime             ${0}                      datetime.fromtimestamp(0)
+    DateTime             ${1602232445}             datetime.fromtimestamp(1602232445)
+    DateTime             ${0.0}                    datetime.fromtimestamp(0)
+    DateTime             ${1612230445.1}           datetime.fromtimestamp(1612230445.1)
 
 Invalid datetime
     [Template]           Conversion Should Fail
