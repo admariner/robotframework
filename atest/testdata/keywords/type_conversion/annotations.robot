@@ -223,6 +223,8 @@ Invalid Enum
 NoneType
     NoneType             None                      None
     NoneType             NONE                      None
+    NoneType             ${1}                      1
+    NoneType             ${23.12}                  23.12
     NoneType             Hello, world!             'Hello, world!'
     NoneType             True                      'True'
     NoneType             []                        '[]'
