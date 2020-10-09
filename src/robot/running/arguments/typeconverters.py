@@ -136,6 +136,8 @@ class BooleanConverter(TypeConverter):
     aliases = ('bool',)
 
     def _convert(self, value, explicit_type=True):
+        if isinstance(value, (float, int)):
+            return bool(value)
         upper = value.upper()
         if upper in TRUE_STRINGS:
             return True
