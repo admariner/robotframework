@@ -84,6 +84,8 @@ String
     String               None                      'None'
     String               True                      'True'
     String               []                        '[]'
+    String               1.2                       '1.2'
+    String               2                         '2'
 
 Bytes
     Bytes                foo                       b'foo'
@@ -91,12 +93,17 @@ Bytes
     Bytes                Hyvä esimerkki!           b'Hyv\\xE4 esimerkki!'
     Bytes                None                      b'None'
     Bytes                NONE                      b'NONE'
+    Bytes                ${22}                     b'\\x00\\x16'
 
 Invalid bytes
     [Template]           Conversion Should Fail
     Bytes                \u0100                                          error=Character '\u0100' cannot be mapped to a byte.
     Bytes                \u00ff\u0100\u0101                              error=Character '\u0100' cannot be mapped to a byte.
     Bytes                Hyvä esimerkki! \u2603                          error=Character '\u2603' cannot be mapped to a byte.
+
+Invalid bytes float
+    [Documentation]    FAIL ValueError: Argument 'argument' got value '1.3' that cannot be converted to bytes.
+    Bytes                ${1.3}
 
 Bytestring
     Bytestring           foo                       b'foo'
@@ -160,6 +167,8 @@ Timedelta
     Timedelta            4:3:2.1                   timedelta(seconds=4*60*60 + 3*60 + 2 + 0.1)
     Timedelta            100:00:00                 timedelta(seconds=100*60*60)
     Timedelta            -00:01                    timedelta(seconds=-1)
+    Timedelta            ${21}                     timedelta(seconds=21)
+    Timedelta            ${2.1}                    timedelta(seconds=2, microseconds=100000)
 
 Invalid timedelta
     [Template]           Conversion Should Fail

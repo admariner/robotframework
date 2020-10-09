@@ -201,6 +201,10 @@ class BytesConverter(TypeConverter):
     def _convert(self, value, explicit_type=True):
         if PY2 and not explicit_type:
             return value
+        if not PY2 and isinstance(value, int):
+            return (value).to_bytes(2, byteorder='big')
+        if not PY2 and isinstance(value, float):
+            raise ValueError
         try:
             value = value.encode('latin-1')
         except UnicodeEncodeError as err:
