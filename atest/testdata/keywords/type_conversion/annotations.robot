@@ -166,6 +166,14 @@ Invalid date
     Date                 2014-06-11T10:07:42                             error=Value is datetime, not date.
     Date                 20180808000000000001                            error=Value is datetime, not date.
 
+Invalid date with float input
+    [Documentation]      FAIL ValueError: Argument 'argument' got value '12.3' that cannot be converted to date.
+    Date                 ${12.3}
+
+Invalid date with int input
+    [Documentation]      FAIL ValueError: Argument 'argument' got value '123' that cannot be converted to date.
+    Date                 ${123}
+
 Timedelta
     Timedelta            10                        timedelta(seconds=10)
     Timedelta            -1.5                      timedelta(seconds=-1.5)

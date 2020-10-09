@@ -55,6 +55,12 @@ Invalid bytes float
 Invalid bytearray with float input
     Check Test Case    ${TESTNAME}
 
+Invalid date with float input
+    Check Test Case    ${TESTNAME}
+
+Invalid date with int input
+    Check Test Case    ${TESTNAME}
+
 Bytestring
     Check Test Case    ${TESTNAME}
 

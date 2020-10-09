@@ -248,6 +248,8 @@ class DateConverter(TypeConverter):
     type = date
 
     def _convert(self, value, explicit_type=True):
+        if isinstance(value, (int, float)):
+            raise ValueError
         dt = convert_date(value, result_format='datetime')
         if dt.hour or dt.minute or dt.second or dt.microsecond:
             raise ValueError("Value is datetime, not date.")
