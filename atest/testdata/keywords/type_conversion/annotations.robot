@@ -93,7 +93,8 @@ Bytes
     Bytes                Hyvä esimerkki!           b'Hyv\\xE4 esimerkki!'
     Bytes                None                      b'None'
     Bytes                NONE                      b'NONE'
-    Bytes                ${22}                     b'\\x00\\x16'
+    Bytes                ${22}                     b'\\x16'
+    Bytes                ${2200001}                b'\\xc1\\x91!'
 
 Invalid bytes
     [Template]           Conversion Should Fail
@@ -124,12 +125,17 @@ Bytearray
     Bytearray            Hyvä esimerkki!           bytearray(b'Hyv\\xE4 esimerkki!')
     Bytearray            None                      bytearray(b'None')
     Bytearray            NONE                      bytearray(b'NONE')
+    Bytearray            ${123176}                 bytearray(b'(\\xe1\\x01')
 
 Invalid bytearray
     [Template]           Conversion Should Fail
     Bytearray            \u0100                                          error=Character '\u0100' cannot be mapped to a byte.
     Bytearray            \u00ff\u0100\u0101                              error=Character '\u0100' cannot be mapped to a byte.
     Bytearray            Hyvä esimerkki! \u2603                          error=Character '\u2603' cannot be mapped to a byte.
+
+Invalid bytearray with float input
+    [Documentation]     FAIL ValueError: Argument 'argument' got value '2123.1021' that cannot be converted to bytearray.
+    Bytearray           ${2123.1021}
 
 Datetime
     DateTime             2014-06-11T10:07:42       datetime(2014, 6, 11, 10, 7, 42)
